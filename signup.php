@@ -1,5 +1,4 @@
-<?php
-
+<?php header('Access-Control-Allow-Origin: *'); 
 include("connection.php");
 $email=$_POST["email"];
 $password =$_POST["password"];
@@ -11,6 +10,10 @@ $gender=$_POST["gender"];
 $query=$mysqli->prepare("insert into users(email,password,id_usertype,name,last_name,gender) values (?,?,?,?,?,?)");
 $query->bind_param("ssissi",$email,$password,$id_usertype,$name,$last_name,$gender);
 $query->execute();
+$response = [];
+$response["success"] = true;
+
+echo json_encode($response);
 
 
 ?>
