@@ -5,7 +5,7 @@ $street_name =$_POST["street_name"];
 
 
 $query=$mysqli->prepare("insert into locations(city_name,street_name) values (?,?)");
-$query->bind_param("ss",$restaurant_name,$restaurant_picture);
+$query->bind_param("ss",$city_name,$street_name);
 $query->execute();
 $response = [];
 $response["success"] = true;
